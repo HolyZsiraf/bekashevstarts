@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bekasi menetrend</title>
+        <script>
+            window.setTimeout(function () {
+                location.href = location.href;
+            }, 30000);
+        </script>
+    </head>
+    <body>
+        {% if departuresList %}
+            <ul>
+            {% for departure in departuresList %}
+                <li>{{ departure.departureTime|date:"H:i" }} {{ departure.startsFromBekas }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No menetrend is available.</p>
+        {% endif %}
+    </body>
+</html>
