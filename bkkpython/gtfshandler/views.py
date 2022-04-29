@@ -31,5 +31,5 @@ def menetrend(request):
     print(time)
     departuresListFiltered = departuresList.filter(departureTime__time__gte=time)
     print(departuresListFiltered)
-    context = {'departuresList': departuresListFiltered}
+    context = {'departuresList': departuresListFiltered, 'nowTime': time}
     return render(request, 'gtfshandler/menetrend.html', context)

@@ -10,10 +10,11 @@
         </script>
     </head>
     <body>
-        {% if departuresList %}
+        {% load template_extras %}
+        {% if departuresList and nowTime %}
             <ul>
             {% for departure in departuresList %}
-                <li>{{ departure.departureTime|date:"H:i" }} {{ departure.startsFromBekas }}</li>
+                <li>{{ departure.departureTime|date:"H:i" }} -- {{ departure.departureTime.minute|subtract:nowTime.minute}} perc -- {% if departure.startsFromBekas %}Bekas{% else %}Szentendre{% endif %}</li>
             {% endfor %}
             </ul>
         {% else %}
